@@ -4,6 +4,7 @@ import { Outlet, useLoaderData } from 'react-router-dom';
 import TShirt from '../T-Shirt/TShirt';
 import Cart from '../Cart/Cart';
 import './Home.css'
+import toast, { Toaster } from 'react-hot-toast';
 
 const Home = () => {
     const allTShirts = useLoaderData()
@@ -16,11 +17,20 @@ const Home = () => {
     const handleAddToCart = (addTShirt) => {
         console.log(addTShirt);
 
+        const exist = cartContainer.find(item => item._id === addTShirt._id);
+        if (exist) {
+            toast('Item already added to cart')
+        }
+        else {
+            const newCartContainer = [...cartContainer, addTShirt]
+        setCartContainer(newCartContainer);
+        }
+
         /** 
          * We need to add new item to cart
          * As we can't push new item to 'state', we need to create a new array of items */
-        const newCartContainer = [...cartContainer, addTShirt]
-        setCartContainer(newCartContainer);
+        // const newCartContainer = [...cartContainer, addTShirt]
+        // setCartContainer(newCartContainer);
     };
     
     // Remove item from cart Handler
