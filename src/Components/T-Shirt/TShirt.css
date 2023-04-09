@@ -1,0 +1,9 @@
+img {
+    width: 320px;
+    border-radius: 15px;
+}
+
+.tShirtContainer {
+    border: 1px solid ghostwhite;
+    border-radius: 15px;
+}

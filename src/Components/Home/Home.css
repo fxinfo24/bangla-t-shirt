@@ -1,0 +1,11 @@
+.homeContainer {
+display: grid;
+grid-template-columns: 3fr 1fr;
+gap: 15px;
+}
+
+.productContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 10px;
+}
